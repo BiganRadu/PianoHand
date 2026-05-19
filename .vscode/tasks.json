@@ -1,0 +1,53 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "PlatformIO: Upload Data (uploadfs)",
+			"type": "shell",
+			"command": "C:\\Users\\radux\\.platformio\\penv\\Scripts\\platformio.exe",
+			"args": [
+				"run",
+				"--target",
+				"uploadfs"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "PlatformIO: Upload Data (uploadfs)",
+			"type": "shell",
+			"command": "C:\\Users\\radux\\.platformio\\penv\\Scripts\\platformio.exe",
+			"args": [
+				"run",
+				"--target",
+				"uploadfs"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "PlatformIO: Upload Data (uploadfs)",
+			"type": "shell",
+			"command": "C:\\Users\\radux\\.platformio\\penv\\Scripts\\platformio.exe",
+			"args": [
+				"run",
+				"--target",
+				"uploadfs"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "PlatformIO: Upload Data (uploadfs)",
+			"type": "shell",
+			"command": "C:\\Users\\radux\\.platformio\\penv\\Scripts\\platformio.exe",
+			"args": [
+				"run",
+				"--target",
+				"uploadfs"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
