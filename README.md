@@ -48,19 +48,19 @@ The system runs on an **ESP32 DevKit** board connected to the following peripher
 ### 📦 Root Configuration
 * **`platformio.ini`**: The main configuration file for PlatformIO. Defines microcontroller specifications, upload/monitor settings (at 115200 baud), and resolves three primary external library dependencies.
 
-### 🧩 Header Files (`include/` and `src/`)
+### 🧩 Header Files (`include/`)
 * **`include/config.hpp`**: Centralizes all pin configurations, LCD settings, SPI parameters, debouncing timings, and FFT/HPS constants (sampling rate, window frames, thresholds).
-* **`src/globals.hpp`**: Holds `extern` declarations for peripheral instances (`degete` servo array, `lcd`), debouncing states, and shared DSP buffers (`gHpsReal`, `gHpsImag`, `gHpsRaw`).
-* **`src/helpers.hpp`**: Declares the core `Note` structure, the system `Mode` enumerations, and houses the unified `playNote(const Note&)` finger servo actuation and latch/delay sequence.
-* **`src/lcd_utils.hpp`**: Provides LCD display utilities, text-centering helpers (`PrintLinePadded`), and renders the scrolling horizontal notes tracker matrix.
-* **`src/audio_dsp.hpp`**: Implements complex math, including building the chromatic notes reference table, a custom radix-2 Cooley-Tukey FFT, the HPS pitch tracking calculations, snapping raw frequencies to the closest note, and duration quantizations.
-* **`src/sd_utils.hpp`**: Encapsulates SD card hardware checks, mounts the card SPI bus, defines the 44-byte `.wav` file structure (`WavHeader`), and copies WAV assets from internal SPIFFS flash to the SD card.
+* **`include/globals.hpp`**: Holds `extern` declarations for peripheral instances (`degete` servo array, `lcd`), debouncing states, and shared DSP buffers (`gHpsReal`, `gHpsImag`, `gHpsRaw`).
+* **`include/helpers.hpp`**: Declares the core `Note` structure, the system `Mode` enumerations, and houses the unified `playNote(const Note&)` finger servo actuation and latch/delay sequence.
+* **`include/lcd_utils.hpp`**: Provides LCD display utilities, text-centering helpers (`PrintLinePadded`), and renders the scrolling horizontal notes tracker matrix.
+* **`include/audio_dsp.hpp`**: Implements complex math, including building the chromatic notes reference table, a custom radix-2 Cooley-Tukey FFT, the HPS pitch tracking calculations, snapping raw frequencies to the closest note, and duration quantizations.
+* **`include/sd_utils.hpp`**: Encapsulates SD card hardware checks, mounts the card SPI bus, defines the 44-byte `.wav` file structure (`WavHeader`), and copies WAV assets from internal SPIFFS flash to the SD card.
+* **`include/mode_interface.hpp`**: An abstract base class (`IMode`) defining the uniform API interface (`print()` and `play()`) for all system modes.
+* **`include/mode1.hpp`**: Mode 1 implementation. Houses a hardcoded array of 20 notes (`kMode1Notes`) representing a basic melody played sequentially.
+* **`include/mode2.hpp`**: Mode 2 implementation. Captures microphone inputs, runs FFT/HPS calculations on-the-fly, maps detected pitches to finger servos, and plays them.
+* **`include/mode3.hpp`**: Mode 3 implementation. Reads recorded `.wav` audio files from the SPI MicroSD card, slices files into windows, extracts note sequences, and plays them via the servos.
 
-### 🕹️ Operating Modes & Entry Point
-* **`src/mode_interface.hpp`**: An abstract base class (`IMode`) defining the uniform API interface (`print()` and `play()`) for all system modes.
-* **`src/mode1.hpp`**: Mode 1 implementation. Houses a hardcoded array of 20 notes (`kMode1Notes`) representing a basic melody played sequentially.
-* **`src/mode2.hpp`**: Mode 2 implementation. Captures microphone inputs, runs FFT/HPS calculations on-the-fly, maps detected pitches to finger servos, and plays them.
-* **`src/mode3.hpp`**: Mode 3 implementation. Reads recorded `.wav` audio files from the SPI MicroSD card, slices files into windows, extracts note sequences, and plays them via the servos.
+### 🕹️ Entry Point (`src/`)
 * **`src/main.cpp`**: The main entry point. Defines and allocates global buffers, attaches and centers servos in `setup()`, and performs non-blocking hardware button debouncing loop in `loop()` to control mode swapping and playback triggers.
 
 ---
