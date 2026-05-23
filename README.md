@@ -43,6 +43,36 @@ The system runs on an **ESP32 DevKit** board connected to the following peripher
 
 ---
 
+## 🖼️ Hardware Design & Schematics
+
+### 📊 Block Diagram
+The block diagram highlights the relationship between the ESP32 microcontroller, sensory inputs (Microphone/MicroSD), user interface controllers (Buttons/LCD), and actuator output channels (Servo-controlled fingers):
+
+![Block Diagram](hardware/SchemaBlocPM.jpg)
+
+### 🔌 Electrical Schematic
+The schematic defines the connections and wiring architecture for all peripheral nodes, highlighting correct pinouts and regulated power supply networks:
+
+![Electrical Schematic](hardware/SchemaElectricaPM.jpg)
+
+---
+
+## 📸 Project Gallery & Video Demonstration
+
+### 🎥 YouTube Project Video Demo
+Click the link below to watch a comprehensive video walkthrough, module explanation, and physical keyboard playback demonstration of the **PianoHand**:
+
+👉 **[Watch the PianoHand Demonstration on YouTube](https://youtu.be/8kD2CJfUQZU)**
+
+### 📷 Physical Assembly Showcase
+Here is a visual breakdown of the fully assembled PianoHand, showing the mechanical layout and control housing:
+
+| Full Project Setup | Mechanical Hand Details | Control Box Assembly |
+| :---: | :---: | :---: |
+| ![Full Project Setup](images/Proiect.jpg) | ![Mechanical Hand Details](images/Mana.jpg) | ![Control Box Assembly](images/Ansamblu%20Control.jpg) |
+
+---
+
 ## 📂 Project File Guide
 
 ### 📦 Root Configuration
